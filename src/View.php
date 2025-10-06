@@ -8,7 +8,7 @@ class View
     public static function render(string $template, array $data = []): void
     {
         $template = __DIR__ . '/../templates/' . $template . '.php';
-        if (file_exists($template)) {
+        if (!file_exists($template)) {
             throw new \RuntimeException("Template not found: $template");
         }
 

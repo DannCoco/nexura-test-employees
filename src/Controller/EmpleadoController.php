@@ -72,8 +72,7 @@ class EmpleadoController
                 'sexo' => $_POST['sexo'] ?? '',
                 'area_id' => $_POST['area_id'] ?? '',
                 'boletin' => isset($_POST['boletin']) ? 1 : 0,
-                'descripcion' => $_POST['descripcion'] ?? '',
-                'roles' => $_POST['roles'] ?? []
+                'descripcion' => $_POST['descripcion'] ?? ''
             ];
             $roles = $_POST['roles'] ?? [];
             $errors = $this->validate($data);
@@ -148,7 +147,7 @@ class EmpleadoController
                 'sexo' => $_POST['sexo'] ?? '',
                 'area_id' => $_POST['area_id'] ?? '',
                 'boletin' => isset($_POST['boletin']) ? 1 : 0,
-                'descripcion' => $_POST['descripcion'] ?? '',
+                'descripcion' => $_POST['descripcion'] ?? ''
             ];
             $roles = $_POST['roles'] ?? [];
             $errors = $this->validate($data);
@@ -194,7 +193,7 @@ class EmpleadoController
             $id = $_POST['id'] ?? null;
             if ($id) {
                 $this->model->delete($id);
-                $this->model->prepare("DELETE FROM empleado_rol WHERE empleado_id = ?")->execute([$id]);
+                $this->model->prepare("DELETE FROM empleados_rol WHERE empleado_id = ?")->execute([$id]);
                 if (session_status() === PHP_SESSION_NONE) {
                     session_start();
                 }

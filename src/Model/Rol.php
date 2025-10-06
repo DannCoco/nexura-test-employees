@@ -5,5 +5,5 @@ use App\ORM\BaseModel;
 
 class Rol extends BaseModel
 {
-    protected $table = 'roles';
+    protected string $table = 'roles';
 }
